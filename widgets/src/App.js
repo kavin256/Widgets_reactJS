@@ -6,6 +6,7 @@ import Translate from "./components/Translate";
 import Route from "./components/Route";
 import Header from "./components/Header";
 
+// you can deploy for free using vercel and netlify
 const items = [
     {
         title: "What is React?",
