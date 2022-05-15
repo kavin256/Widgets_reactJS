@@ -1,17 +1,16 @@
-import React from "react";
-import {connect} from "react-redux";
-import {selectSong} from "../actions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { selectSong } from '../actions';
 
-class SongList extends React.Component {
-
+class SongList extends Component {
     renderList() {
-        return this.props.songs.map((song) => {
+        return this.props.songs.map(song => {
             return (
                 <div className="item" key={song.title}>
                     <div className="right floated content">
                         <button
-                            onClick={() => this.props.selectSong(song)}
                             className="ui button primary"
+                            onClick={() => this.props.selectSong(song)}
                         >
                             Select
                         </button>
@@ -22,17 +21,16 @@ class SongList extends React.Component {
         });
     }
 
-    render () {
-        // this.props === { songs: state.songs}
-        console.log(this.props)
-        return <div className="ui divided list">{this.renderList()}</div>
+    render() {
+        return <div className="ui divided list">{this.renderList()}</div>;
     }
 }
 
-// by convention this is called this name
-const mapStateToProps = (state) => {
-    // console.log(state)
-    return {songs: state.songs};
-}
-// connect does the calling of dispatch
-export default connect(mapStateToProps, {selectSong}) (SongList);
+const mapStateToProps = state => {
+    return { songs: state.songs };
+};
+
+export default connect(
+    mapStateToProps,
+    { selectSong }
+)(SongList);
