@@ -15,7 +15,7 @@ const App = () => {
     );
 };
 
-// take the react component and show it on the screen
+// take the React component and show it on the screen
 ReactDOM.render(
     <App/>,
     document.getElementById('root')
